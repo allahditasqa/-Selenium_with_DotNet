@@ -3,7 +3,7 @@
 A complete, production-style **UI test automation framework** built with **C# / .NET 8, Selenium WebDriver 4 and NUnit 4**.
 It automates every practice scenario of <https://testautomationpractice.blogspot.com/> and produces **HTML reports** (module-wise, time-stamped, never overwritten).
 
-> **60 automated test cases · 11 modules · parallel execution · Page Object Model · HTML + CSV reports**
+> **60 automated tests (58 documented cases) · 10 modules · parallel execution · Page Object Model · HTML + CSV reports**
 
 ---
 
@@ -17,7 +17,7 @@ It automates every practice scenario of <https://testautomationpractice.blogspot
 6. [Running the tests](#6-running-the-tests)
 7. [Configuration](#7-configuration)
 8. [Reports](#8-reports)
-9. [Test coverage](#9-test-coverage)
+9. [Test coverage and test cases](#9-test-coverage)
 10. [How to add a new test](#10-how-to-add-a-new-test)
 11. [Design decisions and best practices](#11-design-decisions-and-best-practices)
 12. [Troubleshooting](#12-troubleshooting)
@@ -134,7 +134,7 @@ dotnet test --filter "Category=Alerts"
 Run one test:
 
 ```powershell
-dotnet test --filter "Name~Drag_And_Drop"
+dotnet test --filter "Name~TC_MOUSE_003"
 ```
 
 Watch the browser (not headless) or use another browser – without editing any file:
@@ -168,6 +168,7 @@ Any key can be overridden with an environment variable named `AUTOMATION_<KEY>` 
 
 After every run you get:
 
+* **How to generate:** run `dotnet test` (the layout below is created automatically). **Latest committed runs:** 18-11-2026 14:35 and 14:27 (60 tests, 0 failed each; the two runs overlapped on the same machine) after the first run at 12:16; all are listed in `Reports/index.html` (newest on top). Reports come from real runs only.
 * **`Reports/index.html`** – history page. Newest run on top, and under each date-time the module-wise results (total / pass / fail / skip) with links.
 * **`Reports/<module>/<Module> test dd-MM-yyyy_HH-mm-ss.html`** – full module report: summary, every test case with status, duration, error message, stack trace and screenshots (click a screenshot to enlarge).
 * **`Reports/<module>/<Module> test cases dd-MM-yyyy_HH-mm-ss.csv`** – the same test cases as a CSV.
@@ -217,6 +218,20 @@ Important rules:
 | Download Files | Generate and download a text file and a PDF file, verify the files | 2 |
 | **Total** | | **60** |
 
+### Test cases (documents)
+
+Every automated test has a written test case in `docs/`, linked by the same ID (`TC_<AREA>_<NNN>`), which is also the start of the test method name.
+
+| What | Where |
+|---|---|
+| Standard (format, ID rule, columns) | [`docs/TEST_CASE_STANDARD.md`](docs/TEST_CASE_STANDARD.md) |
+| Test strategy | [`docs/TEST_STRATEGY.md`](docs/TEST_STRATEGY.md) |
+| One document per module (10 files, **58 cases**, all automated; 60 tests because `TC_NAV_005` runs with 3 data sets) | [`docs/test-cases/*.md`](docs/test-cases/) |
+| Master CSV per module | `docs/test-cases/*.csv` |
+
+* `powershell scripts/Build-CaseCsv.ps1` builds the master CSV from the documents (`-Check` only verifies).
+* `dotnet test --filter "Category=Docs"` (`DocsTraceabilityTests`) fails if code and documents differ in ID, title, priority, type, steps, expected result or test method. CI (`.github/workflows/ci.yml`) runs build + both checks.
+
 ## 10. How to add a new test
 
 1. **Page object** – `tests/Automation.Tests/Pages/MyPage.cs`
@@ -242,7 +257,7 @@ public class MyTests : BaseTest
         "Click Save|Read the message",               // steps separated by |
         "-",                                         // test data
         "Message 'Saved' is displayed")]             // expected result
-    public void Save_Shows_Message()
+    public void TC_MY_001_Save_Shows_Message()
     {
         new HomePage(Driver).Open();
         var page = new MyPage(Driver);
@@ -252,7 +267,7 @@ public class MyTests : BaseTest
 }
 ```
 
-3. Run `dotnet test`. A new "My Module" report appears automatically – no report code needed.
+3. Add the row to `docs/test-cases/my-module.md`, run `scripts/Build-CaseCsv.ps1`, then `dotnet test`. A new "My Module" report appears automatically; `Category=Docs` checks the document matches.
 
 Tip: call `Snap("caption")` inside a test to put an extra screenshot into the report.
 

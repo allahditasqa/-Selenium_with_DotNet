@@ -24,7 +24,7 @@ public class LinksAndNavigationTests : BaseTest
         "Scroll to 'Labels And Links'|Read the 'Mobile Labels' items",
         "-",
         "Labels 'Samsung', 'Real Me' and 'Moto' are displayed in this order")]
-    public void Mobile_Labels()
+    public void TC_LINK_001_Mobile_Labels()
     {
         Assert.That(_links.MobileLabels(), Is.EqualTo(new[] { "Samsung", "Real Me", "Moto" }));
     }
@@ -35,7 +35,7 @@ public class LinksAndNavigationTests : BaseTest
         "Scroll to 'Laptop Links'|Read the href of Apple, Lenovo and Dell",
         "-",
         "Hrefs contain apple.com, lenovo.com and dell.com respectively")]
-    public void Laptop_Links()
+    public void TC_LINK_002_Laptop_Links()
     {
         var l = _links.LaptopLinks();
         Assert.Multiple(() =>
@@ -52,7 +52,7 @@ public class LinksAndNavigationTests : BaseTest
         "Scroll to 'Broken Links'|Count the links|Read the href of every link",
         "Error codes: 400, 401, 403, 404, 408, 500, 502, 503",
         "8 links exist and each href ends with its own error code")]
-    public void Broken_Links_Are_Listed()
+    public void TC_LINK_003_Broken_Links_Are_Listed()
     {
         var b = _links.BrokenLinks();
         Assert.That(b, Has.Count.EqualTo(8));
@@ -66,7 +66,7 @@ public class LinksAndNavigationTests : BaseTest
         "Collect the href of all 8 Broken Links|Send an HTTP GET request to every URL|Record the status code",
         "8 URLs from the Broken Links section",
         "Every link is requested; each returns a status code or is reported as unreachable")]
-    public async Task Broken_Links_Http_Status()
+    public async Task TC_LINK_004_Broken_Links_Http_Status()
     {
         var results = new List<string>();
         foreach (var (text, href) in _links.BrokenLinks())
@@ -85,7 +85,7 @@ public class LinksAndNavigationTests : BaseTest
         "Collect the href of Apple, Lenovo and Dell|Send an HTTP GET request to each|Read the status code",
         "URLs: apple.com, lenovo.com, dell.com",
         "No link returns a 5xx status code")]
-    public async Task Working_Links_Respond()
+    public async Task TC_LINK_005_Working_Links_Respond()
     {
         foreach (var (name, href) in _links.LaptopLinks())
         {
@@ -101,7 +101,7 @@ public class LinksAndNavigationTests : BaseTest
         "Read all links of the top menu|Read the href of 'PlaywrightPractice'",
         "Expected menu: Home, Udemy Courses, Online Trainings, Blog, PlaywrightPractice",
         "All 5 links are present; PlaywrightPractice points to the playwrightpractice page")]
-    public void Header_Menu_Links()
+    public void TC_NAV_001_Header_Menu_Links()
     {
         var h = _home.HeaderLinks();
         Assert.That(h.Keys, Is.SupersetOf(new[] { "Home", "Udemy Courses", "Online Trainings", "Blog", "PlaywrightPractice" }));
@@ -114,7 +114,7 @@ public class LinksAndNavigationTests : BaseTest
         "Scroll to the footer|Click 'Hidden Elements & AJAX'|Read the page URL",
         "-",
         "URL contains 'gui-elements-ajax-hidden'")]
-    public void Footer_Link_Hidden_Elements()
+    public void TC_NAV_002_Footer_Link_Hidden_Elements()
     {
         _home.ClickFooterLink("Hidden Elements & AJAX");
         Assert.That(_home.CurrentUrl, Does.Contain("gui-elements-ajax-hidden"));
@@ -126,7 +126,7 @@ public class LinksAndNavigationTests : BaseTest
         "Scroll to the footer|Click 'Download Files'|Read the page URL",
         "-",
         "URL contains 'download-files'")]
-    public void Footer_Link_Download_Files()
+    public void TC_NAV_003_Footer_Link_Download_Files()
     {
         _home.ClickFooterLink("Download Files");
         Assert.That(_home.CurrentUrl, Does.Contain("download-files"));
@@ -138,7 +138,7 @@ public class LinksAndNavigationTests : BaseTest
         "Scroll to the 'Visitors' widget|Read the total count",
         "-",
         "Counter shows a numeric value (digits with optional thousand separators)")]
-    public void Visitors_Counter()
+    public void TC_NAV_004_Visitors_Counter()
     {
         Assert.That(_home.TotalVisitorCount(), Does.Match(@"^[\d,]+$"));
     }
@@ -149,7 +149,7 @@ public class LinksAndNavigationTests : BaseTest
         "Scroll to the Form section N|Read the heading and the paragraph|Type text in the section input|Click the section Submit button|Read the input value",
         "Section N = 1, 2, 3; Text: 'hello N'",
         "Heading is 'Section N'; paragraph is 'This is a paragraph in Section N.'; input keeps the typed text")]
-    public void Form_Sections(int n)
+    public void TC_NAV_005_Form_Sections(int n)
     {
         var f = new FormSectionsPage(Driver);
         Assert.Multiple(() =>

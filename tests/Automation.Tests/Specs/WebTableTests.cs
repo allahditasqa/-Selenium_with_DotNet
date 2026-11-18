@@ -23,7 +23,7 @@ public class WebTableTests : BaseTest
         "Scroll to 'Static Web Table'|Read the column headers|Count the data rows",
         "Expected headers: BookName, Author, Subject, Price",
         "Headers are BookName, Author, Subject, Price; table has 6 data rows")]
-    public void Static_Table_Headers_And_Row_Count()
+    public void TC_TABLE_001_Static_Table_Headers_And_Row_Count()
     {
         Assert.That(_tables.StaticHeaders(), Is.EqualTo(new[] { "BookName", "Author", "Subject", "Price" }));
         Assert.That(_tables.StaticBooks(), Has.Count.EqualTo(6));
@@ -35,7 +35,7 @@ public class WebTableTests : BaseTest
         "Read all rows of the Static Web Table|Filter rows where Author = 'Mukesh'|Collect book names",
         "Author: Mukesh",
         "Books 'Learn Java' and 'Master In Selenium' are returned")]
-    public void Static_Table_Filter_By_Author()
+    public void TC_TABLE_002_Static_Table_Filter_By_Author()
     {
         var books = _tables.StaticBooks().Where(b => b.Author == "Mukesh").Select(b => b.Name).ToList();
         Assert.That(books, Is.EquivalentTo(new[] { "Learn Java", "Master In Selenium" }));
@@ -47,7 +47,7 @@ public class WebTableTests : BaseTest
         "Read the Price column of all 6 rows|Add the prices",
         "Prices: 300, 500, 300, 3000, 2000, 1000",
         "Total price is 7100")]
-    public void Static_Table_Total_Price()
+    public void TC_TABLE_003_Static_Table_Total_Price()
     {
         Assert.That(_tables.StaticBooks().Sum(b => b.Price), Is.EqualTo(7100));
     }
@@ -58,7 +58,7 @@ public class WebTableTests : BaseTest
         "Locate the 'Chrome' row and the 'CPU (%)' column (column order changes on every load)|Read the CPU value from the table|Read 'CPU load of Chrome process' text below the table|Compare both",
         "Process: Chrome; Column: CPU (%)",
         "Both values are identical")]
-    public void Dynamic_Table_Chrome_Cpu_Matches_Label()
+    public void TC_TABLE_004_Dynamic_Table_Chrome_Cpu_Matches_Label()
     {
         var fromTable = _tables.DynamicCell("Chrome", "CPU");
         Assert.That(fromTable, Is.EqualTo(_tables.ChromeCpuFromLabel()));
@@ -70,7 +70,7 @@ public class WebTableTests : BaseTest
         "Count the rows of the Dynamic Web Table|Read Firefox Memory, System Network, Internet Explorer Disk and Chrome CPU values",
         "Units: MB, Mbps, MB/s, %",
         "4 rows; values end with MB, Mbps, MB/s and % respectively")]
-    public void Dynamic_Table_Rows_And_Units()
+    public void TC_TABLE_005_Dynamic_Table_Rows_And_Units()
     {
         Assert.That(_tables.DynamicRowCount(), Is.EqualTo(4));
         Assert.Multiple(() =>
@@ -88,7 +88,7 @@ public class WebTableTests : BaseTest
         "Count the pagination links|Click page 1, 2, 3 and 4 one by one|On each page count the product rows",
         "Pages: 1 to 4",
         "There are 4 pages; each page shows 5 rows (20 products in total)")]
-    public void Pagination_Table_Pages_And_Rows()
+    public void TC_TABLE_006_Pagination_Table_Pages_And_Rows()
     {
         Assert.That(_tables.PageCount(), Is.EqualTo(4));
         int total = 0;
@@ -108,7 +108,7 @@ public class WebTableTests : BaseTest
         "Stay on page 1 of the Pagination Web Table|Read ID, Name and Price of the first row",
         "Expected: 1, Smartphone, $10.99",
         "First row is ID 1, Name 'Smartphone', Price '$10.99'")]
-    public void Pagination_Table_First_Row()
+    public void TC_TABLE_007_Pagination_Table_First_Row()
     {
         var first = _tables.ProductsOnPage().First();
         Assert.That(first, Is.EqualTo(("1", "Smartphone", "$10.99")));
@@ -120,7 +120,7 @@ public class WebTableTests : BaseTest
         "On page 1 tick the checkbox of 'Laptop'|Verify it is ticked|Go to page 2|Tick all checkboxes on page 2|Verify all are ticked",
         "Product: Laptop; Page: 2 (all products)",
         "Selected checkboxes are ticked on each page")]
-    public void Pagination_Table_Select_Checkboxes()
+    public void TC_TABLE_008_Pagination_Table_Select_Checkboxes()
     {
         _tables.SelectProduct("Laptop");
         Assert.That(_tables.IsProductSelected("Laptop"), Is.True);

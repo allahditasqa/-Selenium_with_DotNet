@@ -23,7 +23,7 @@ public class AlertsAndWindowsTests : BaseTest
         "Click 'Simple Alert'|Read the alert text|Click OK",
         "-",
         "Alert text is 'I am an alert box!'; the alert closes after OK")]
-    public void Simple_Alert()
+    public void TC_ALERT_001_Simple_Alert()
     {
         Assert.That(_page.OpenSimpleAlertAndAccept(), Is.EqualTo("I am an alert box!"));
     }
@@ -34,7 +34,7 @@ public class AlertsAndWindowsTests : BaseTest
         "Click 'Confirmation Alert'|Click OK in the alert|Read the result text on the page",
         "Action: OK",
         "Page shows 'You pressed OK!'")]
-    public void Confirm_Alert_Accept()
+    public void TC_ALERT_002_Confirm_Alert_Accept()
     {
         Assert.That(_page.ConfirmAlert(accept: true), Is.EqualTo("Press a button!"));
         Assert.That(_page.ResultText, Is.EqualTo("You pressed OK!"));
@@ -46,7 +46,7 @@ public class AlertsAndWindowsTests : BaseTest
         "Click 'Confirmation Alert'|Click Cancel in the alert|Read the result text on the page",
         "Action: Cancel",
         "Page shows 'You pressed Cancel!'")]
-    public void Confirm_Alert_Dismiss()
+    public void TC_ALERT_003_Confirm_Alert_Dismiss()
     {
         _page.ConfirmAlert(accept: false);
         Assert.That(_page.ResultText, Is.EqualTo("You pressed Cancel!"));
@@ -58,7 +58,7 @@ public class AlertsAndWindowsTests : BaseTest
         "Click 'Prompt Alert'|Type a name in the prompt|Click OK|Read the result text on the page",
         "Name: Allah Ditta",
         "Result text contains 'Allah Ditta'")]
-    public void Prompt_Alert_Accept_With_Text()
+    public void TC_ALERT_004_Prompt_Alert_Accept_With_Text()
     {
         _page.PromptAlert("Allah Ditta", accept: true);
         Assert.That(_page.ResultText, Does.Contain("Allah Ditta"));
@@ -70,7 +70,7 @@ public class AlertsAndWindowsTests : BaseTest
         "Click 'Prompt Alert'|Click Cancel in the prompt|Read the result text on the page",
         "Action: Cancel",
         "No 'Hello ...' greeting is displayed")]
-    public void Prompt_Alert_Dismiss()
+    public void TC_ALERT_005_Prompt_Alert_Dismiss()
     {
         _page.PromptAlert(null, accept: false);
         Assert.That(_page.ResultText, Does.Not.Contain("Hello"));
@@ -82,7 +82,7 @@ public class AlertsAndWindowsTests : BaseTest
         "Click 'New Tab'|Switch to the newly opened tab|Read its URL|Close the new tab and return to the original tab",
         "Expected site: pavantestingtools.com",
         "A new tab opens with pavantestingtools.com; after closing it only the original tab remains")]
-    public void New_Tab()
+    public void TC_WINDOW_001_New_Tab()
     {
         var original = _page.OpenNewTab();
         Assert.That(_page.CurrentUrl, Does.Contain("pavantestingtools.com"));
@@ -97,7 +97,7 @@ public class AlertsAndWindowsTests : BaseTest
         "Click 'Popup Windows'|Count open windows|Close all popup windows",
         "-",
         "At least one extra window opens; after closing them only the original window remains")]
-    public void Popup_Windows()
+    public void TC_WINDOW_002_Popup_Windows()
     {
         var (original, count) = _page.OpenPopupWindows();
         Assert.That(count, Is.GreaterThan(1), "at least one popup window must open");

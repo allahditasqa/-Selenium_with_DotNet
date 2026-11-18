@@ -23,7 +23,7 @@ public class DataEntryFormTests : BaseTest
         "Enter a valid name in the Name field|Enter a valid email in the Email field|Enter a phone number in the Phone field|Enter an address in the Address field|Read back the value of every field",
         "Name: Allah Ditta; Email: allah.ditta@example.com; Phone: 3001234567; Address: House 10, Street 5, Islamabad, Pakistan",
         "Every field shows exactly the value that was entered")]
-    public void Fill_Text_Fields()
+    public void TC_FORM_001_Fill_Text_Fields()
     {
         _form.FillBasicDetails(FormData.Name, FormData.Email, FormData.Phone, FormData.Address);
         var v = _form.ReadBasicDetails();
@@ -42,7 +42,7 @@ public class DataEntryFormTests : BaseTest
         "Select the 'Male' radio button|Verify Male is selected and Female is not|Select the 'Female' radio button|Verify Female is selected and Male is not",
         "Gender: Male, then Female",
         "Only one radio button is selected at any time; selecting Female deselects Male")]
-    public void Gender_Radio_Buttons_Are_Mutually_Exclusive()
+    public void TC_FORM_002_Gender_Radio_Buttons_Are_Mutually_Exclusive()
     {
         _form.SelectGender("Male");
         Assert.Multiple(() =>
@@ -64,7 +64,7 @@ public class DataEntryFormTests : BaseTest
         "Tick all 7 day checkboxes (Sunday to Saturday)|Verify all 7 are selected|Untick all 7 checkboxes|Verify none is selected",
         "Days: Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday",
         "All checkboxes toggle independently; after unticking, no day remains selected")]
-    public void Days_Checkboxes_Select_And_Unselect_All()
+    public void TC_FORM_003_Days_Checkboxes_Select_And_Unselect_All()
     {
         foreach (var d in FormData.AllDays) _form.SelectDay(d);
         Assert.That(FormData.AllDays.All(_form.IsDaySelected), Is.True, "all days should be selected");
@@ -79,7 +79,7 @@ public class DataEntryFormTests : BaseTest
         "Tick 'Monday'|Tick 'Friday'|Read the state of all 7 day checkboxes",
         "Days: Monday, Friday",
         "Only Monday and Friday are selected; the other 5 days stay unselected")]
-    public void Select_Specific_Days()
+    public void TC_FORM_004_Select_Specific_Days()
     {
         _form.SelectDay("Monday"); _form.SelectDay("Friday");
         var selected = FormData.AllDays.Where(_form.IsDaySelected).ToList();
@@ -92,7 +92,7 @@ public class DataEntryFormTests : BaseTest
         "Read all options of the Country dropdown|Select 'India'|Read the selected option",
         "Country: India",
         "Dropdown lists United States, Canada, United Kingdom, Germany, France, Australia, Japan, China, Brazil, India; 'India' is shown as selected")]
-    public void Country_Dropdown()
+    public void TC_FORM_005_Country_Dropdown()
     {
         Assert.That(_form.CountryOptions(), Is.EqualTo(FormData.Countries));
         _form.SelectCountry("India");
@@ -105,7 +105,7 @@ public class DataEntryFormTests : BaseTest
         "Count the options of the Colors list|Select 'Red'|Select 'Green' while keeping Red selected|Read the selected options",
         "Colors: Red, Green",
         "List has 7 options; exactly Red and Green are selected")]
-    public void Colors_Multi_Select()
+    public void TC_FORM_006_Colors_Multi_Select()
     {
         _form.SelectColors("Red", "Green");
         Assert.That(_form.SelectedColors(), Is.EquivalentTo(new[] { "Red", "Green" }));
@@ -118,7 +118,7 @@ public class DataEntryFormTests : BaseTest
         "Read all options of the Sorted List dropdown|Verify they are in ascending alphabetical order|Select 'Lion'|Read the selected option",
         "Animal: Lion",
         "10 animals (Cat ... Zebra) are listed in alphabetical order; 'Lion' is selected")]
-    public void Animals_Sorted_List()
+    public void TC_FORM_007_Animals_Sorted_List()
     {
         var options = _form.AnimalOptions();
         Assert.That(options, Is.EqualTo(FormData.Animals));
@@ -133,7 +133,7 @@ public class DataEntryFormTests : BaseTest
         "Fill Name, Email, Phone and Address|Select gender Male|Tick Saturday|Select country Japan|Select color Blue|Select animal Zebra|Verify every control holds the chosen value",
         "Name: Allah Ditta; Gender: Male; Day: Saturday; Country: Japan; Color: Blue; Animal: Zebra",
         "All fields and selections retain the entered values")]
-    public void Complete_Form_End_To_End()
+    public void TC_FORM_008_Complete_Form_End_To_End()
     {
         _form.FillBasicDetails(FormData.Name, FormData.Email, FormData.Phone, FormData.Address);
         _form.SelectGender("Male");

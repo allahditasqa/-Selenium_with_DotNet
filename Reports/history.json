@@ -105,5 +105,219 @@
         "DurationSeconds": 61.574379
       }
     ]
+  },
+  {
+    "RunId": "20261118-142737",
+    "StartedAt": "2026-11-18T14:27:37.0412923+05:00",
+    "DurationSeconds": 658.0418739,
+    "Modules": [
+      {
+        "Module": "Alerts and Windows",
+        "ReportPath": "alerts-and-windows/Alerts and Windows test 18-11-2026_14-27-37.html",
+        "CsvPath": "alerts-and-windows/Alerts and Windows test cases 18-11-2026_14-27-37.csv",
+        "Total": 7,
+        "Passed": 7,
+        "Failed": 0,
+        "Skipped": 0,
+        "DurationSeconds": 110.735885
+      },
+      {
+        "Module": "Data Entry Form",
+        "ReportPath": "data-entry-form/Data Entry Form test 18-11-2026_14-27-37.html",
+        "CsvPath": "data-entry-form/Data Entry Form test cases 18-11-2026_14-27-37.csv",
+        "Total": 8,
+        "Passed": 8,
+        "Failed": 0,
+        "Skipped": 0,
+        "DurationSeconds": 157.9620075
+      },
+      {
+        "Module": "Date Pickers",
+        "ReportPath": "date-pickers/Date Pickers test 18-11-2026_14-27-37.html",
+        "CsvPath": "date-pickers/Date Pickers test cases 18-11-2026_14-27-37.csv",
+        "Total": 5,
+        "Passed": 5,
+        "Failed": 0,
+        "Skipped": 0,
+        "DurationSeconds": 86.8941496
+      },
+      {
+        "Module": "Download Files",
+        "ReportPath": "download-files/Download Files test 18-11-2026_14-27-37.html",
+        "CsvPath": "download-files/Download Files test cases 18-11-2026_14-27-37.csv",
+        "Total": 2,
+        "Passed": 2,
+        "Failed": 0,
+        "Skipped": 0,
+        "DurationSeconds": 42.3189555
+      },
+      {
+        "Module": "Dynamic Elements",
+        "ReportPath": "dynamic-elements/Dynamic Elements test 18-11-2026_14-27-37.html",
+        "CsvPath": "dynamic-elements/Dynamic Elements test cases 18-11-2026_14-27-37.csv",
+        "Total": 6,
+        "Passed": 6,
+        "Failed": 0,
+        "Skipped": 0,
+        "DurationSeconds": 90.7484803
+      },
+      {
+        "Module": "File Upload",
+        "ReportPath": "file-upload/File Upload test 18-11-2026_14-27-37.html",
+        "CsvPath": "file-upload/File Upload test cases 18-11-2026_14-27-37.csv",
+        "Total": 3,
+        "Passed": 3,
+        "Failed": 0,
+        "Skipped": 0,
+        "DurationSeconds": 40.5567602
+      },
+      {
+        "Module": "Hidden Elements and AJAX",
+        "ReportPath": "hidden-elements-and-ajax/Hidden Elements and AJAX test 18-11-2026_14-27-37.html",
+        "CsvPath": "hidden-elements-and-ajax/Hidden Elements and AJAX test cases 18-11-2026_14-27-37.csv",
+        "Total": 4,
+        "Passed": 4,
+        "Failed": 0,
+        "Skipped": 0,
+        "DurationSeconds": 54.8606289
+      },
+      {
+        "Module": "Links and Navigation",
+        "ReportPath": "links-and-navigation/Links and Navigation test 18-11-2026_14-27-37.html",
+        "CsvPath": "links-and-navigation/Links and Navigation test cases 18-11-2026_14-27-37.csv",
+        "Total": 12,
+        "Passed": 12,
+        "Failed": 0,
+        "Skipped": 0,
+        "DurationSeconds": 162.35901320000002
+      },
+      {
+        "Module": "Mouse and Keyboard Actions",
+        "ReportPath": "mouse-and-keyboard-actions/Mouse and Keyboard Actions test 18-11-2026_14-27-37.html",
+        "CsvPath": "mouse-and-keyboard-actions/Mouse and Keyboard Actions test cases 18-11-2026_14-27-37.csv",
+        "Total": 5,
+        "Passed": 5,
+        "Failed": 0,
+        "Skipped": 0,
+        "DurationSeconds": 64.58314200000001
+      },
+      {
+        "Module": "Web Tables",
+        "ReportPath": "web-tables/Web Tables test 18-11-2026_14-27-37.html",
+        "CsvPath": "web-tables/Web Tables test cases 18-11-2026_14-27-37.csv",
+        "Total": 8,
+        "Passed": 8,
+        "Failed": 0,
+        "Skipped": 0,
+        "DurationSeconds": 145.3931495
+      }
+    ]
+  },
+  {
+    "RunId": "20261118-143543",
+    "StartedAt": "2026-11-18T14:35:43.2302229+05:00",
+    "DurationSeconds": 426.7357029,
+    "Modules": [
+      {
+        "Module": "Alerts and Windows",
+        "ReportPath": "alerts-and-windows/Alerts and Windows test 18-11-2026_14-35-43.html",
+        "CsvPath": "alerts-and-windows/Alerts and Windows test cases 18-11-2026_14-35-43.csv",
+        "Total": 7,
+        "Passed": 7,
+        "Failed": 0,
+        "Skipped": 0,
+        "DurationSeconds": 110.52347580000001
+      },
+      {
+        "Module": "Data Entry Form",
+        "ReportPath": "data-entry-form/Data Entry Form test 18-11-2026_14-35-43.html",
+        "CsvPath": "data-entry-form/Data Entry Form test cases 18-11-2026_14-35-43.csv",
+        "Total": 8,
+        "Passed": 8,
+        "Failed": 0,
+        "Skipped": 0,
+        "DurationSeconds": 141.0061682
+      },
+      {
+        "Module": "Date Pickers",
+        "ReportPath": "date-pickers/Date Pickers test 18-11-2026_14-35-43.html",
+        "CsvPath": "date-pickers/Date Pickers test cases 18-11-2026_14-35-43.csv",
+        "Total": 5,
+        "Passed": 5,
+        "Failed": 0,
+        "Skipped": 0,
+        "DurationSeconds": 87.4441266
+      },
+      {
+        "Module": "Download Files",
+        "ReportPath": "download-files/Download Files test 18-11-2026_14-35-43.html",
+        "CsvPath": "download-files/Download Files test cases 18-11-2026_14-35-43.csv",
+        "Total": 2,
+        "Passed": 2,
+        "Failed": 0,
+        "Skipped": 0,
+        "DurationSeconds": 44.139006800000004
+      },
+      {
+        "Module": "Dynamic Elements",
+        "ReportPath": "dynamic-elements/Dynamic Elements test 18-11-2026_14-35-43.html",
+        "CsvPath": "dynamic-elements/Dynamic Elements test cases 18-11-2026_14-35-43.csv",
+        "Total": 6,
+        "Passed": 6,
+        "Failed": 0,
+        "Skipped": 0,
+        "DurationSeconds": 97.73237639999999
+      },
+      {
+        "Module": "File Upload",
+        "ReportPath": "file-upload/File Upload test 18-11-2026_14-35-43.html",
+        "CsvPath": "file-upload/File Upload test cases 18-11-2026_14-35-43.csv",
+        "Total": 3,
+        "Passed": 3,
+        "Failed": 0,
+        "Skipped": 0,
+        "DurationSeconds": 32.500028
+      },
+      {
+        "Module": "Hidden Elements and AJAX",
+        "ReportPath": "hidden-elements-and-ajax/Hidden Elements and AJAX test 18-11-2026_14-35-43.html",
+        "CsvPath": "hidden-elements-and-ajax/Hidden Elements and AJAX test cases 18-11-2026_14-35-43.csv",
+        "Total": 4,
+        "Passed": 4,
+        "Failed": 0,
+        "Skipped": 0,
+        "DurationSeconds": 43.6979247
+      },
+      {
+        "Module": "Links and Navigation",
+        "ReportPath": "links-and-navigation/Links and Navigation test 18-11-2026_14-35-43.html",
+        "CsvPath": "links-and-navigation/Links and Navigation test cases 18-11-2026_14-35-43.csv",
+        "Total": 12,
+        "Passed": 12,
+        "Failed": 0,
+        "Skipped": 0,
+        "DurationSeconds": 122.6038695
+      },
+      {
+        "Module": "Mouse and Keyboard Actions",
+        "ReportPath": "mouse-and-keyboard-actions/Mouse and Keyboard Actions test 18-11-2026_14-35-43.html",
+        "CsvPath": "mouse-and-keyboard-actions/Mouse and Keyboard Actions test cases 18-11-2026_14-35-43.csv",
+        "Total": 5,
+        "Passed": 5,
+        "Failed": 0,
+        "Skipped": 0,
+        "DurationSeconds": 78.8312179
+      },
+      {
+        "Module": "Web Tables",
+        "ReportPath": "web-tables/Web Tables test 18-11-2026_14-35-43.html",
+        "CsvPath": "web-tables/Web Tables test cases 18-11-2026_14-35-43.csv",
+        "Total": 8,
+        "Passed": 8,
+        "Failed": 0,
+        "Skipped": 0,
+        "DurationSeconds": 79.3508979
+      }
+    ]
   }
 ]

@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-and-docs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - run: dotnet build --configuration Release
+      - name: Master CSV is up to date
+        shell: pwsh
+        run: ./scripts/Build-CaseCsv.ps1 -Check
+      - name: Test case documents match the automated tests
+        run: dotnet test --configuration Release --no-build --filter "Category=Docs"
