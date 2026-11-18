@@ -1,0 +1,11 @@
+## Build output
+bin/
+obj/
+*.user
+.vs/
+.idea/
+TestResults/
+
+## Run-time folders (Reports/ is committed on purpose: it is the test evidence)
+Logs/
+Downloads/
